@@ -1,7 +1,7 @@
 @extends('painel.templates.dashboard')
 @section('conteudo')
 <div class="title-pg">
-    <h1 class="title-pg">Cadasro de Categoria</h1>
+    <h1 class="title-pg">Cadasro de Categorias</h1>
 </div>
 
 <div class="content-din">
@@ -17,7 +17,8 @@
              @endforeach
          </div>
      </div>
-    @endif
+
+ @endif
  <!-- /.Alert Errors start -->
  <!-- form start -->
     @if(isset($data))
@@ -40,10 +41,9 @@
         <label for="InputUrl">Url</label>
         <input type="text" class="form-control" id="InputUrl" name="url" placeholder="Url" value="{{$data->url or old('url')}}">
     </div>
-    <!-- textarea -->
     <div class="form-group col-md-12">
-        <label>Descrição</label>
-        <textarea class="form-control" rows="5" name="description" placeholder="Digite aqui ...">{{$data->description or old('description')}}</textarea>
+        <label>Description</label>
+        <textarea class="form-control" rows="3" name="description" placeholder="Digite aqui ...">{{$data->description or old('description')}}</textarea>
     </div>
     <div class="form-group col-md-12">
         <label for="InputFile">Imagem de Perfil</label>
@@ -51,7 +51,7 @@
 
     </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
             <button class="btn btn-info">Enviar</button>
         </div>
     </form>

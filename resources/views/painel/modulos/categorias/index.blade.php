@@ -1,7 +1,7 @@
 @extends('painel.templates.dashboard')
 @section('conteudo')
 <div class="title-pg">
-    <h1 class="title-pg">Listagem de Categorias</h1>
+    <h1 class="title-pg">Listagem dos Usuários</h1>
 </div>
 
 <div class="content-din bg-white">
@@ -40,6 +40,7 @@
         <tr>
             <th>Nome</th>
             <th>Url</th>
+
             <th width="150">Ações</th>
         </tr>
         @forelse($datas as $cat)

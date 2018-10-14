@@ -1,10 +1,11 @@
+<!--master.blade.php-->
 <html>
 <head>
-<title>WebDevAlfa</title>
+	<title>Exemplo de arquivos blade</title>
 </head>
-    <body>
-       <div class="container">
-       @yield('conteudo')
-       </div> 
-    </body>
+<body>
+	<div class="container">
+		@yield('conteudo')
+	</div>
+</body>
 </html>
