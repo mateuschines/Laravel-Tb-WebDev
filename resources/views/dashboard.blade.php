@@ -1,4 +1,4 @@
 @extends('master')
 @section('conteudo')
-<p>O	conteúdo	do	nosso	dashboard vem	aqui!</p>
+    <p>O conteudo do seu dashboard</p>
 @endsection
