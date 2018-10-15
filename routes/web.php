@@ -48,6 +48,7 @@ Route::get('/contato', 'Site\SiteController@contato');
 Route::get('/empresa', 'Site\SiteController@empresa');
 Route::get('/post', 'Site\SiteController@post');
 Route::get('/categoria', 'Site\SiteController@categoria');
+Route::get('/post', 'Site\SiteController@post');
 Route::get('/', 'Site\SiteController@index');
 /****************************************************************************************
  * Rotas do Painel
@@ -60,6 +61,11 @@ Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function (){
    //Categorias
    Route::any('/categorias/pesquisar', 'Painel\CategoriaController@search')->name('categorias.search');
    Route::resource('/categorias', 'Painel\CategoriaController');
+
+   //Posts
+   Route::any('/posts/pesquisar', 'Painel\PostController@search')->name('posts.search');
+   Route::resource('/posts', 'Painel\PostController');
+
    //Raiz painel
    Route::get('/', 'HomeController@index')->name('home');
 });

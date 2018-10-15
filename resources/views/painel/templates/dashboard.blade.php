@@ -39,6 +39,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="{{url('/painel/posts')}}">
+			<i class="fa fa-list" aria-hidden="true"></i>
+			Posts
+				</a>
+			</li>
+			<li>
             <a href="{{url('/painel/home')}}">
 					<i class="fa fa-home" aria-hidden="true"></i>
 					Home
