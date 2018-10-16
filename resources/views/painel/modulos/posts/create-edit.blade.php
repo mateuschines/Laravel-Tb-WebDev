@@ -40,6 +40,15 @@
         <label for="InputUser">Usuario</label>
         <input type="text" class="form-control" id="InputUser" name="user_id" placeholder="Usuario" value="{{$data->user_id or old('user_id')}}">
     </div>
+        <div class="form-group col-md-12">
+            <label for="InputUser">Selecione o Usuario</label>
+            <select name="user_id" class="form-control" required="ON">
+            <option value="">Clique aqui</option>
+            @foreach ($resultsU as $user_id)
+                <option value="{{$user_id->id}}" > {{$user_id->name}}</option>
+            @endforeach     
+            </select>    
+        </div>
     <div class="form-group col-md-12">
         <label for="InputCategoty">Categoria</label>
         <input type="text" class="form-control" id="InputCategoty" name="category_id" placeholder="Categoria" value="{{$data->category_id or old('category_id')}}">

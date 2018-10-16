@@ -7,6 +7,9 @@ use App\Http\Controllers\Painel\StandardController;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Post;
 
 class PostController extends StandardController
@@ -27,6 +30,13 @@ class PostController extends StandardController
     {
         $this->model = $post;
     }
+
+    public function selectUsuarios() { 
+        $resultsU = DB::select('select * from users');
+        
+        return view('painel.modulos.posts.create-edit')->with('resultsU', $resultsU);
+       // return response()->view('list', $results);
+      }
 
    
 }
