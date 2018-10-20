@@ -31,12 +31,7 @@ class PostController extends StandardController
         $this->model = $post;
     }
 
-    public function selectUsuarios() { 
-        $resultsU = DB::select('select * from users');
-        
-        return view('painel.modulos.posts.create-edit')->with('resultsU', $resultsU);
-       // return response()->view('list', $results);
-      }
+    
 
    
 }

@@ -16,14 +16,12 @@ class Post extends Model
         'hour',
         'featured',
         'status',
-        'image',
-        'url'
+        'image'
     ];
 
     public function rules($id = ''){
         return [
             'title'         => 'required|min:3|max:250',
-            'url'           => "required|min:3|max:100|unique:posts,url,{$id},id",
             'category_id'   => 'required',
             'description'   => 'required|min:10|max:6000',
             'date'          => 'required|date',

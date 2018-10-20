@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+use Illuminate\Support\Facades\DB;
+
+
 use App\Models\Category;
 use App\Models\Post;
 
@@ -37,7 +41,9 @@ class StandardController extends Controller
      */
     public function create()
     {
-        return view ("{$this->views}.create-edit");
+        $resultsU = DB::select('select * from users');
+        $resultsC = DB::select('select * from categories');
+        return view ("{$this->views}.create-edit", compact('resultsU','resultsC'));
     }
 
     /**
@@ -111,10 +117,13 @@ class StandardController extends Controller
      */
     public function edit($id)
     {
+        //
+        $resultsU = DB::select('select * from users');
+        $resultsC = DB::select('select * from categories');
          //Recuperar usuário
          $data = $this->model->find($id);
 
-         return view("{$this->views}.create-edit", compact('data'));
+         return view("{$this->views}.create-edit", compact('data','resultsU','resultsC'));
     }
 
     /**
@@ -207,4 +216,13 @@ class StandardController extends Controller
 
         return view("{$this->views}.index", compact('datas', 'dataForm'));
     }
+
+    //Meus metodos
+
+    public function selectUsers() { 
+        $resultsU = DB::select('select * from users');
+        
+        return view("{$this->views}.create-edit", compact('resultsU'));
+       // return response()->view('list', $results);
+      }
 }

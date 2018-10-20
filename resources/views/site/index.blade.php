@@ -39,23 +39,36 @@
 <section class="content">
     <div class="col-md-8">
         
-        <?php for($i = 1; $i <= 10; $i++){?>
+        <?php //for($i = 1; $i <= 10; $i++){?>
+        @foreach ($Posts as $posts)
         <article class="post">
             <div class="image-post col-md-4 text-center">
                 <img src="imgs/img1.jpg" alt="Nome Post" class="img-post">
             </div>
             <div class="description-post col-md-8">
-                <h2 class="title-post">Título do post pode vir bem aqui...</h2>
+                <h2 class="title-post">{{$posts->title}}</h2>
 
                 <p class="description-post">
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração...
+                    {{$posts->description}}
                 </p>
 
-                <a class="btn-post" href="?pg=post">Ir <span class="glyphicon glyphicon-chevron-right"></span></a>
+                
             </div>
+            <a class="btn-post" href="?pg=post">Ir <span class="glyphicon glyphicon-chevron-right"></span></a>
         </article>
-        <?php }?>
+        @endforeach
+        
+        {{-- {{$datas->links()}} --}}
 
+        @if(isset($dataForm))
+        {{$datas->appends(Request::only('pesquisa'))->links()}}
+            @else
+        {{$datas->links()}}
+            @endif
+
+
+        <?//php }?>
+<!--
         <div class="pagination-posts">
             <nav aria-label="Page navigation">
               <ul class="pagination">
@@ -77,6 +90,8 @@
               </ul>
             </nav>
         </div>
+-->
+
 
     </div><!--POSTS-->
 
